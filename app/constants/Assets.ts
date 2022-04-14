@@ -36,3 +36,9 @@ export const Sizes = {
 export const Opacity = {
   opacity2: "rgba(0,0,0, 0.2)",
 };
+
+export const WALLET_TOP_TABS = [
+  { title: "Send", id: 1 },
+  { title: "Receive", id: 2 },
+  { title: "Trade", id: 3 },
+];
