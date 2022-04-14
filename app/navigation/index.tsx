@@ -6,8 +6,8 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { Feather, FontAwesome } from "@expo/vector-icons";
-import { ColorSchemeName } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { ColorSchemeName, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -17,6 +17,7 @@ import Profile from "../screens/Profile";
 import { RootStackParamList, RootTabParamList } from "../../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import Vector from "../assets/vectors";
+import { Shadows } from "app/constants/Assets";
 
 export default function Navigation({
   colorScheme,
@@ -83,18 +84,31 @@ const BottomTabNavigator = () => {
           title: "Trade",
           headerShown: false,
           tabBarShowLabel: false,
-          tabBarIcon: ({ color }) => (
-            <Vector
-              name="exchange"
-              size={20}
-              color={color}
+          tabBarIcon: () => (
+            <View
               style={{
-                borderWidth: 2,
-                padding: 5,
-                borderColor: color,
-                borderRadius: 8,
+                top: -28,
+                height: 70,
+                width: 70,
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 50,
+                backgroundColor: Colors.primary.background,
+                ...Shadows.shadow8,
               }}
-            />
+            >
+              <Vector
+                name="exchange"
+                size={20}
+                color={Colors.secondary.background}
+                style={{
+                  borderWidth: 2,
+                  padding: 5,
+                  borderColor: Colors.secondary.background,
+                  borderRadius: 8,
+                }}
+              />
+            </View>
           ),
         })}
       />

@@ -1,17 +1,18 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Colors from "../constants/Colors";
-import AppStatusBar from "../components/AppStatusBar";
-import { Images } from "../constants/Assets";
+import Colors from "app/constants/Colors";
+import AppStatusBar from "app/components/AppStatusBar";
+import { Images, Sizes } from "app/constants/Assets";
 import { useNavigation } from "@react-navigation/native";
-import Vector from "../assets/vectors";
+import Vector from "app/assets/vectors";
+import styles from "app/styles";
 
 const Onboarding = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { padding: Sizes.p20 }]}>
       <AppStatusBar backgroundColor="#fff" />
       <View style={{ flex: 1 }}>
         <Image
@@ -59,32 +60,3 @@ const Onboarding = () => {
 };
 
 export default Onboarding;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.primary.background,
-    color: Colors.primary.text,
-    flex: 1,
-    padding: 20,
-  },
-  startButton: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-    backgroundColor: Colors.secondary.background,
-    borderRadius: 30,
-    width: "100%",
-    padding: 10,
-    paddingHorizontal: 25,
-  },
-  startIcon: {
-    height: 35,
-    width: 35,
-    borderRadius: 40,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: Colors.tertiary.background,
-  },
-});

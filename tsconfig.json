@@ -10,8 +10,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "target": "ESNext",
-    "baseUrl": "./app/",
-    "allowJs": true
+    "baseUrl": ".",
+    "allowJs": true,
+    "paths": {
+      "app": ["./app/"]
+    }
   },
   "exclude": ["node_modules"],
   "include": ["./app/**/*.tsx", "./app/**/*.ts"]
