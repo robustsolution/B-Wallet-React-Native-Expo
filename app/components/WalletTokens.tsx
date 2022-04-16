@@ -6,6 +6,8 @@ import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import Colors from "../constants/Colors";
 
 const TokenCard = ({ item }: { item: IToken }) => {
+  const hasDecreased = item.status === "D";
+
   return (
     <View
       style={{
@@ -55,19 +57,20 @@ const TokenCard = ({ item }: { item: IToken }) => {
             style={{
               fontFamily: FONTS.monoRegular,
               fontSize: 16,
-              color: Colors.green,
+              color: hasDecreased ? Colors.red : Colors.green,
             }}
           >
-            +{item.rate}%
+            {hasDecreased ? "-" : "+"}
+            {item.rate}%
           </Text>
         </View>
       </View>
       <View>
         <Text
           style={{
-            fontFamily: FONTS.monoBold,
+            fontFamily: FONTS.monoMedium,
             fontWeight: "500",
-            fontSize: 18,
+            fontSize: SIZES.large,
             marginBottom: 5,
           }}
         >

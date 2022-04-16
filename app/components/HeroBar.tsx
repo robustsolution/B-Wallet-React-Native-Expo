@@ -143,7 +143,11 @@ const HeroBar = () => {
                   paddingLeft: index !== 0 ? 20 : 0,
                 }}
               >
-                <Text>{tab.title}</Text>
+                <Text
+                  style={{ fontFamily: FONTS.light, fontSize: SIZES.medium }}
+                >
+                  {tab.title}
+                </Text>
               </View>
             ))}
           </View>

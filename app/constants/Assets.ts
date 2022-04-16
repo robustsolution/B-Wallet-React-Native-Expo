@@ -48,7 +48,7 @@ export const SIZES = {
 };
 
 export const FONTS = {
-  light: "IBMplexSansLight",
+  light: "IBMPlexSansLight",
   regular: "IBMPlexSansRegular",
   medium: "IBMPlexSansMedium",
   semibold: "IBMPlexSansSemiBold",

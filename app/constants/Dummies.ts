@@ -26,7 +26,7 @@ export const TOKENS: IToken[] = [
     icon: IMAGES.Ethereum,
     rate: 5.5,
     priceUSD: 3029.53,
-    status: "I",
+    status: "D",
     balance: 0,
   },
   {
