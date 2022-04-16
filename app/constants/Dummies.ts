@@ -1,4 +1,4 @@
-import { IToken, ITransaction } from "types";
+import { IToken, ITransaction, TChains } from "types";
 import { IMAGES } from "./Assets";
 
 export const USER_DATA = {
@@ -8,8 +8,8 @@ export const USER_DATA = {
   address: "0xE21603B45E2675fFeB9f20EED098e268219508CB",
 };
 
-export const TOKENS: IToken[] = [
-  {
+export const TOKENS: Record<TChains, IToken> = {
+  Bitcoin: {
     id: 1,
     name: "Bitcoin",
     symbol: "BTC",
@@ -19,7 +19,7 @@ export const TOKENS: IToken[] = [
     status: "I",
     balance: 0,
   },
-  {
+  Ethereum: {
     id: 2,
     name: "Ethereum",
     symbol: "ETH",
@@ -29,7 +29,7 @@ export const TOKENS: IToken[] = [
     status: "D",
     balance: 0,
   },
-  {
+  Binance: {
     id: 3,
     name: "Binance",
     symbol: "BSC",
@@ -39,7 +39,7 @@ export const TOKENS: IToken[] = [
     status: "I",
     balance: 0,
   },
-  {
+  Polygon: {
     id: 4,
     name: "Polygon",
     symbol: "MATIC",
@@ -49,18 +49,14 @@ export const TOKENS: IToken[] = [
     status: "D",
     balance: 0,
   },
-];
+};
 
 export const TRANSACTIONS: ITransaction[] = [
   {
     id: 1,
     type: "stake",
     amount: 0,
-    token: {
-      name: "Binance",
-      symbol: "BSC",
-      icon: IMAGES.Binance,
-    },
+    token: "Binance",
     date: new Date().toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
@@ -71,17 +67,8 @@ export const TRANSACTIONS: ITransaction[] = [
     id: 2,
     type: "swap",
     amount: 100,
-    token: {
-      name: "Ethereum",
-      symbol: "ETH",
-      icon: IMAGES.Ethereum,
-    },
-    destination: {
-      name: "Polygon",
-      symbol: "BSC",
-      icon: IMAGES.Polygon,
-      balance: 0.1,
-    },
+    token: "Ethereum",
+    destination: "Polygon",
     date: new Date().toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",

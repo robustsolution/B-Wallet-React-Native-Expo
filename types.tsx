@@ -59,7 +59,7 @@ export interface ITransaction {
   from?: string;
   to?: string;
   amount?: number;
-  token?: IToken;
-  destination?: IToken;
+  token: TChains;
+  destination?: TChains;
   date: string;
 }

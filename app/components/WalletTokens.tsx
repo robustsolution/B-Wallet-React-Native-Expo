@@ -84,7 +84,7 @@ const TokenCard = ({ item }: { item: IToken }) => {
 const WalletTokens = () => {
   return (
     <FlatList
-      data={TOKENS}
+      data={Object.values(TOKENS)}
       renderItem={TokenCard}
       showsVerticalScrollIndicator={false}
       keyExtractor={({ id }) => `${id}`}

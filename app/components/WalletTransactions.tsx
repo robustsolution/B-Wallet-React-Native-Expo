@@ -1,15 +1,8 @@
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  ImageSourcePropType,
-  TextProps,
-} from "react-native";
+import { View, Text, FlatList, Image, TextProps } from "react-native";
 import React from "react";
-import { TRANSACTIONS } from "../constants/Dummies";
+import { TOKENS, TRANSACTIONS } from "../constants/Dummies";
 import styles from "../styles";
-import { IToken, ITransaction, TActivity } from "types";
+import { ITransaction, TActivity, TChains } from "types";
 import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import Vector from "../assets/vectors";
 import Colors from "../constants/Colors";
@@ -24,15 +17,15 @@ const TransactionIcon = ({
   destination,
 }: {
   type: TActivity;
-  token?: IToken;
-  destination?: IToken;
+  token?: TChains;
+  destination?: TChains;
 }) => {
   if (type === "swap" && token && destination) {
     return (
       <View style={{ flexDirection: "row", position: "relative" }}>
-        <Image source={token.icon} style={styles.leadingIcon} />
+        <Image source={TOKENS[token].icon} style={styles.leadingIcon} />
         <Image
-          source={destination.icon}
+          source={TOKENS[destination].icon}
           style={[
             styles.leadingIcon,
             { position: "absolute", right: -20, top: 10 },
@@ -45,7 +38,7 @@ const TransactionIcon = ({
   if (type === "stake" && token) {
     return (
       <View style={{ position: "relative" }}>
-        <Image source={token.icon} style={styles.leadingIcon} />
+        <Image source={TOKENS[token].icon} style={styles.leadingIcon} />
         <View
           style={{
             position: "absolute",
@@ -85,23 +78,23 @@ const TransactionTitle = ({
 }: {
   type: TActivity;
   amount: number;
-  token?: IToken;
-  destination?: IToken;
+  token: TChains;
+  destination?: TChains;
 } & TextProps) => {
-  if (type === "swap" && amount) {
+  if (type === "swap" && amount && destination && token) {
     return (
       <Text style={style}>
-        Swap {Number(amount).toFixed(2)} {token?.symbol} for{" "}
-        {Number(destination?.balance)} {destination?.symbol}
+        Swap {Number(amount).toFixed(2)} {TOKENS[token].symbol} for{" "}
+        {Number(TOKENS[destination]?.balance)} {TOKENS[destination].symbol}
       </Text>
     );
   }
 
   if (type === "stake") {
-    return <Text style={style}>Stake {token?.symbol}</Text>;
+    return <Text style={style}>Stake {TOKENS[token].symbol}</Text>;
   }
 
-  return <Text style={style}>Approve {token?.symbol}</Text>;
+  return <Text style={style}>Approve {TOKENS[token].symbol}</Text>;
 };
 
 const TransactionCard = ({ item }: IProps) => {
@@ -140,7 +133,7 @@ const TransactionCard = ({ item }: IProps) => {
         />
         <Text style={{ fontFamily: FONTS.monoLight }}>{item.date}</Text>
       </View>
-      {!["approve", "swap"].includes(item.type) && (
+      {!["approve", "swap"].includes(item.type) && item.token && (
         <View>
           <Text
             style={{
@@ -149,7 +142,7 @@ const TransactionCard = ({ item }: IProps) => {
               marginBottom: 5,
             }}
           >
-            {item.amount} {item.token?.symbol}
+            {item.amount} {TOKENS[item.token]?.symbol}
           </Text>
           <Text
             style={{
