@@ -1,7 +1,13 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Opacity, Shadows, Sizes, WALLET_TOP_TABS } from "../constants/Assets";
+import {
+  FONTS,
+  Opacity,
+  SHADOWS,
+  SIZES,
+  WALLET_TOP_TABS,
+} from "../constants/Assets";
 import styles from "../styles";
 import Vector from "../assets/vectors";
 import { USER_DATA } from "../constants/Dummies";
@@ -20,8 +26,8 @@ const HeroBar = () => {
         style={{
           height: 300,
           ...styles.primaryColor,
-          paddingHorizontal: Sizes.p20,
-          paddingTop: Sizes.p6,
+          paddingHorizontal: SIZES.p20,
+          paddingTop: SIZES.p6,
         }}
       >
         <SafeAreaView>
@@ -50,12 +56,14 @@ const HeroBar = () => {
             style={{
               justifyContent: "center",
               alignItems: "center",
-              marginTop: Sizes.p6,
+              marginTop: SIZES.p6,
             }}
           >
             <Text
               style={{
                 color: styles.primaryColor.color,
+                fontFamily: FONTS.regular,
+                fontSize: SIZES.medium,
               }}
             >
               {USER_DATA.username}
@@ -74,9 +82,10 @@ const HeroBar = () => {
                   color: styles.primaryColor.color,
                   fontSize: 20,
                   fontWeight: "bold",
-                  marginVertical: Sizes.p15,
+                  marginVertical: SIZES.p15,
                   flex: 1,
                   textAlign: "center",
+                  fontFamily: FONTS.monoBold,
                 }}
               >
                 {showAmount
@@ -102,7 +111,9 @@ const HeroBar = () => {
                 borderRadius: 100,
               }}
             >
-              <Text>{truncate(USER_DATA.address)}</Text>
+              <Text style={{ fontFamily: FONTS.regular }}>
+                {truncate(USER_DATA.address)}
+              </Text>
             </View>
           </View>
 
@@ -115,8 +126,8 @@ const HeroBar = () => {
               alignItems: "center",
               width: "100%",
               backgroundColor: "#fff",
-              borderRadius: Sizes.p6,
-              ...Shadows.shadow,
+              borderRadius: SIZES.p6,
+              ...SHADOWS.shadow,
             }}
           >
             {WALLET_TOP_TABS.map((tab, index) => (

@@ -2,7 +2,7 @@ import { View, Text, FlatList, Image } from "react-native";
 import React from "react";
 import { TOKENS } from "../constants/Dummies";
 import { IToken } from "types";
-import { Images, Shadows, Sizes } from "../constants/Assets";
+import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import Colors from "../constants/Colors";
 
 const TokenCard = ({ item }: { item: IToken }) => {
@@ -22,28 +22,55 @@ const TokenCard = ({ item }: { item: IToken }) => {
           borderRadius: 70,
           justifyContent: "center",
           alignItems: "center",
-          marginRight: Sizes.p15,
+          marginRight: SIZES.p15,
           marginLeft: 5,
-          ...Shadows.shadow8,
+          ...SHADOWS.shadow8,
         }}
       >
         <Image source={item.icon} style={{ width: "100%", height: "100%" }} />
       </View>
       <View style={{ width: "100%", flex: 1, alignSelf: "flex-start" }}>
-        <Text style={{ fontWeight: "500", fontSize: 18, marginBottom: 5 }}>
+        <Text
+          style={{
+            fontFamily: FONTS.semibold,
+            fontWeight: "500",
+            fontSize: 18,
+            marginBottom: 5,
+          }}
+        >
           {item.name}
         </Text>
         <View style={{ flexDirection: "row" }}>
-          <Text style={{ fontSize: 16, color: Colors.gray, marginRight: 10 }}>
+          <Text
+            style={{
+              fontFamily: FONTS.monoRegular,
+              fontSize: 16,
+              color: Colors.black50,
+              marginRight: 10,
+            }}
+          >
             ${item.priceUSD}
           </Text>
-          <Text style={{ fontSize: 16, color: Colors.green }}>
+          <Text
+            style={{
+              fontFamily: FONTS.monoRegular,
+              fontSize: 16,
+              color: Colors.green,
+            }}
+          >
             +{item.rate}%
           </Text>
         </View>
       </View>
       <View>
-        <Text style={{ fontWeight: "500", fontSize: 18, marginBottom: 5 }}>
+        <Text
+          style={{
+            fontFamily: FONTS.monoBold,
+            fontWeight: "500",
+            fontSize: 18,
+            marginBottom: 5,
+          }}
+        >
           {item.balance} {item.symbol}
         </Text>
       </View>

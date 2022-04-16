@@ -1,5 +1,5 @@
 import { IToken } from "types";
-import { Images } from "./Assets";
+import { IMAGES } from "./Assets";
 
 export const USER_DATA = {
   username: "@satoshi",
@@ -13,7 +13,7 @@ export const TOKENS: IToken[] = [
     id: 1,
     name: "Bitcoin",
     symbol: "BTC",
-    icon: Images.Bitcoin,
+    icon: IMAGES.Bitcoin,
     rate: 2.45,
     priceUSD: 40432.48,
     status: "I",
@@ -23,7 +23,7 @@ export const TOKENS: IToken[] = [
     id: 2,
     name: "Ethereum",
     symbol: "ETH",
-    icon: Images.Ethereum,
+    icon: IMAGES.Ethereum,
     rate: 5.5,
     priceUSD: 3029.53,
     status: "I",
@@ -33,7 +33,7 @@ export const TOKENS: IToken[] = [
     id: 3,
     name: "Binance",
     symbol: "BSC",
-    icon: Images.Binance,
+    icon: IMAGES.Binance,
     rate: 3.45,
     priceUSD: 416.58,
     status: "I",
@@ -43,7 +43,7 @@ export const TOKENS: IToken[] = [
     id: 4,
     name: "Polygon",
     symbol: "MATIC",
-    icon: Images.Polygon,
+    icon: IMAGES.Polygon,
     rate: 1.3,
     priceUSD: 416.58,
     status: "D",

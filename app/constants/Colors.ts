@@ -23,6 +23,7 @@ export default {
   secondary: "#7DFFF3",
   tertiary: "#9E80FF",
   white: "#fff",
-  gray: "#C4C4C4",
-  green: "#7BC08F",
+  black50: "rgba(0,0,0,0.5)",
+  green: "green",
+  red: "red",
 };

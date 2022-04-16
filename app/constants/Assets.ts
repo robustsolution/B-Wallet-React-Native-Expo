@@ -4,7 +4,7 @@ const Ethereum = require("../assets/images/ethereum.png");
 const Binance = require("../assets/images/binance.png");
 const Polygon = require("../assets/images/polygon.png");
 
-export const Images = {
+export const IMAGES = {
   Wallet,
   Bitcoin,
   Ethereum,
@@ -12,7 +12,7 @@ export const Images = {
   Polygon,
 };
 
-export const Shadows = {
+export const SHADOWS = {
   shadow8: {
     shadowColor: "#000",
     shadowOffset: {
@@ -35,10 +35,28 @@ export const Shadows = {
   },
 };
 
-export const Sizes = {
+export const SIZES = {
   p20: 20,
   p15: 15,
   p6: 6,
+  base: 8,
+  small: 12,
+  font: 14,
+  medium: 16,
+  large: 18,
+  extraLarge: 24,
+};
+
+export const FONTS = {
+  light: "IBMplexSansLight",
+  regular: "IBMPlexSansRegular",
+  medium: "IBMPlexSansMedium",
+  semibold: "IBMPlexSansSemiBold",
+  bold: "IBMPlexSansBold",
+  monoLight: "IBMPlexMonoLight",
+  monoRegular: "IBMPlexMonoRegular",
+  monoMedium: "IBMPlexMonoMedium",
+  monoBold: "IBMPlexMonoBold",
 };
 
 export const Opacity = {

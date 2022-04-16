@@ -14,7 +14,15 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...FontAwesome.font,
-          "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
+          IBMPlexSansLight: require("../assets/fonts/IBMPlexSans-Light.ttf"),
+          IBMPlexSansRegular: require("../assets/fonts/IBMPlexSans-Regular.ttf"),
+          IBMPlexSansMedium: require("../assets/fonts/IBMPlexSans-Medium.ttf"),
+          IBMPlexSansSemiBold: require("../assets/fonts/IBMPlexSans-SemiBold.ttf"),
+          IBMPlexSansBold: require("../assets/fonts/IBMPlexSans-Bold.ttf"),
+          IBMPlexMonoLight: require("../assets/fonts/IBMPlexMono-Light.ttf"),
+          IBMPlexMonoRegular: require("../assets/fonts/IBMPlexMono-Regular.ttf"),
+          IBMPlexMonoMedium: require("../assets/fonts/IBMPlexMono-Medium.ttf"),
+          IBMPlexMonoBold: require("../assets/fonts/IBMPlexMono-Bold.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

@@ -17,7 +17,7 @@ import Profile from "../screens/Profile";
 import { RootStackParamList, RootTabParamList } from "../../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import Vector from "../assets/vectors";
-import { Shadows } from "../constants/Assets";
+import { SHADOWS } from "../constants/Assets";
 
 export default function Navigation({
   colorScheme,
@@ -99,7 +99,7 @@ const RootNavigator = () => {
 //                 alignItems: "center",
 //                 borderRadius: 50,
 //                 backgroundColor: Colors.primary.background,
-//                 ...Shadows.shadow8,
+//                 ...SHADOWS.shadow8,
 //               }}
 //             >
 //               <Vector

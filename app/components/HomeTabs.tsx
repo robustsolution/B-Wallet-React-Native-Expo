@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React, { useState } from "react";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 
-import { Sizes } from "../constants/Assets";
+import { SIZES } from "../constants/Assets";
 import styles from "../styles";
 import Layout from "../constants/Layout";
 import WalletAssets from "./WalletTokens";
@@ -26,8 +26,8 @@ const HomeTabs = () => {
       style={{
         height: "100%",
         backgroundColor: "#fff",
-        padding: Sizes.p20,
-        paddingVertical: Sizes.p20 + 10,
+        padding: SIZES.p20,
+        paddingVertical: SIZES.p20 + 10,
         marginTop: 8,
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
@@ -43,8 +43,8 @@ const HomeTabs = () => {
             {...props}
             style={{
               backgroundColor: "#f6f6f6",
-              borderRadius: Sizes.p6 + 2,
-              marginBottom: Sizes.p15,
+              borderRadius: SIZES.p6 + 2,
+              marginBottom: SIZES.p15,
             }}
             indicatorStyle={{
               backgroundColor: styles.primaryColor.color,

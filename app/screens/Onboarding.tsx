@@ -3,7 +3,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "../constants/Colors";
 import AppStatusBar from "../components/AppStatusBar";
-import { Images, Sizes } from "../constants/Assets";
+import { IMAGES, SIZES } from "../constants/Assets";
 import { useNavigation } from "@react-navigation/native";
 import Vector from "../assets/vectors";
 import styles from "../styles";
@@ -12,11 +12,11 @@ const Onboarding = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={[styles.container, { padding: Sizes.p20 }]}>
+    <SafeAreaView style={[styles.container, { padding: SIZES.p20 }]}>
       <AppStatusBar backgroundColor="#fff" />
       <View style={{ flex: 1 }}>
         <Image
-          source={Images.Wallet}
+          source={IMAGES.Wallet}
           style={{ width: "100%", height: "100%" }}
           resizeMode="contain"
         />
