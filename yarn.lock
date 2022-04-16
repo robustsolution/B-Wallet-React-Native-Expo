@@ -6014,6 +6014,11 @@ react-native-codegen@^0.0.6:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-dropdown-picker@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-dropdown-picker/-/react-native-dropdown-picker-5.4.0.tgz#8f5b16c44edf0e9aba152025c9c43683a0dbb32b"
+  integrity sha512-O5jlHb9+MRurVXNL3IrNK4f2HGODxYRoE1n+7MMA0NvrO0Mz7ICwrWZWC3qfbopTBy0ERjIWf+BRQiS2vFnaRQ==
+
 react-native-pager-view@5.4.9:
   version "5.4.9"
   resolved "https://registry.yarnpkg.com/react-native-pager-view/-/react-native-pager-view-5.4.9.tgz#c0d40847cfeda5a4e729b53271b0ee0fedff3eb5"

@@ -26,4 +26,5 @@ export default {
   black50: "rgba(0,0,0,0.5)",
   green: "green",
   red: "#e63946",
+  gray: "#f6f6f6",
 };

@@ -10,9 +10,11 @@ import {
 } from "../constants/Assets";
 import styles from "../styles";
 import Vector from "../assets/vectors";
-import { USER_DATA } from "../constants/Dummies";
-import { truncate } from "../helpers";
+import { TOKENS, USER_DATA } from "../constants/Dummies";
+import { convertTokenToDollars, truncate } from "../helpers";
 import Colors from "../constants/Colors";
+import DropDownPicker from "react-native-dropdown-picker";
+import TokenSelector from "./TokenSelector";
 
 const HeroBar = () => {
   const [showAmount, setShowAmount] = useState(true);
@@ -25,15 +27,23 @@ const HeroBar = () => {
     <View style={{ paddingBottom: 50 }}>
       <View
         style={{
-          height: 300,
+          height: 320,
           ...styles.primaryColor,
           paddingHorizontal: SIZES.p20,
           paddingTop: SIZES.p6,
         }}
       >
         <SafeAreaView>
-          <View style={{ alignItems: "flex-end" }}>
-            <TouchableOpacity>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              marginVertical: 10,
+              zIndex: 10,
+            }}
+          >
+            <TokenSelector />
+            <TouchableOpacity style={{ alignItems: "flex-end" }}>
               <View
                 style={{
                   height: 50,
@@ -57,7 +67,7 @@ const HeroBar = () => {
             style={{
               justifyContent: "center",
               alignItems: "center",
-              marginTop: SIZES.p6,
+              marginTop: SIZES.p15,
             }}
           >
             <Text
@@ -89,7 +99,9 @@ const HeroBar = () => {
                   fontFamily: FONTS.monoBold,
                 }}
               >
-                {showAmount ? `US ${USER_DATA.amount}` : "******"}
+                {showAmount
+                  ? `US ${convertTokenToDollars(USER_DATA.amount, "Bitcoin")}`
+                  : "******"}
               </Text>
 
               <TouchableOpacity onPress={onToggleAmount}>
@@ -118,8 +130,8 @@ const HeroBar = () => {
 
           <View
             style={{
-              bottom: -60,
-              height: 70,
+              bottom: -50,
+              height: 60,
               flexDirection: "row",
               justifyContent: "space-evenly",
               alignItems: "center",

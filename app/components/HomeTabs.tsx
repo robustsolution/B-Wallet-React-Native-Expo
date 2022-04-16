@@ -7,6 +7,7 @@ import styles from "../styles";
 import Layout from "../constants/Layout";
 import WalletAssets from "./WalletTokens";
 import WalletTransactions from "./WalletTransactions";
+import Colors from "../constants/Colors";
 
 const ROUTES = [
   { key: "tokens", title: "Tokens" },
@@ -25,7 +26,7 @@ const HomeTabs = () => {
     <View
       style={{
         height: "100%",
-        backgroundColor: "#fff",
+        backgroundColor: Colors.white,
         padding: SIZES.p20,
         paddingVertical: SIZES.p20 + 10,
         marginTop: 8,
@@ -42,7 +43,7 @@ const HomeTabs = () => {
           <TabBar
             {...props}
             style={{
-              backgroundColor: "#f6f6f6",
+              backgroundColor: Colors.gray,
               borderRadius: SIZES.p6 + 2,
               marginBottom: SIZES.p15,
             }}
