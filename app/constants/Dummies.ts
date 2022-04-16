@@ -1,13 +1,16 @@
-import { IToken, ITransaction, TChains } from "types";
+import { IToken, ITransaction, IUser, TChains } from "types";
 import { IMAGES } from "./Assets";
 
-export const USER_DATA = {
+export const USER_DATA: IUser = {
   username: "@satoshi",
-  amount: "238,894.89",
-  currency: "US",
+  amount: 2,
+  token: "Bitcoin",
   address: "0xE21603B45E2675fFeB9f20EED098e268219508CB",
 };
 
+/**
+ * The currency price in USD is based on the price grabbed on Google on 16 Apr 2022 at around 6PM
+ */
 export const TOKENS: Record<TChains, IToken> = {
   Bitcoin: {
     id: 1,
@@ -15,7 +18,7 @@ export const TOKENS: Record<TChains, IToken> = {
     symbol: "BTC",
     icon: IMAGES.Bitcoin,
     rate: 2.45,
-    priceUSD: 40432.48,
+    priceUSD: 40455.1,
     status: "I",
     balance: 0,
   },
@@ -25,7 +28,7 @@ export const TOKENS: Record<TChains, IToken> = {
     symbol: "ETH",
     icon: IMAGES.Ethereum,
     rate: 5.5,
-    priceUSD: 3029.53,
+    priceUSD: 3050.78,
     status: "D",
     balance: 0,
   },
@@ -45,7 +48,7 @@ export const TOKENS: Record<TChains, IToken> = {
     symbol: "MATIC",
     icon: IMAGES.Polygon,
     rate: 1.3,
-    priceUSD: 416.58,
+    priceUSD: 1.39,
     status: "D",
     balance: 0,
   },

@@ -89,9 +89,7 @@ const HeroBar = () => {
                   fontFamily: FONTS.monoBold,
                 }}
               >
-                {showAmount
-                  ? `${USER_DATA.currency} ${USER_DATA.amount}`
-                  : "******"}
+                {showAmount ? `US ${USER_DATA.amount}` : "******"}
               </Text>
 
               <TouchableOpacity onPress={onToggleAmount}>

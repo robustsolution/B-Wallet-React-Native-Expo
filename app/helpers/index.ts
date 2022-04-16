@@ -1,4 +1,5 @@
-import { DateTimeFormat } from "types";
+import { DateTimeFormat, TChains } from "types";
+import { TOKENS } from "../constants/Dummies";
 
 export const truncate = (str: string) => {
   if (!str) {
@@ -22,4 +23,11 @@ export const dateFormat = (date?: string) => {
   }
 
   return new Date().toLocaleDateString("en-US", format);
+};
+
+export const convertTokenToDollars = (price: number, token: TChains) => {
+  const chain = TOKENS[token];
+
+  const total = price * chain.priceUSD;
+  return total.toFixed(2).toLocaleString();
 };

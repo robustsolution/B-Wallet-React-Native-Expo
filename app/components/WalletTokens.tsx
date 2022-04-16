@@ -4,6 +4,7 @@ import { TOKENS } from "../constants/Dummies";
 import { IToken } from "types";
 import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import Colors from "../constants/Colors";
+import { convertTokenToDollars } from "../helpers";
 
 const TokenCard = ({ item }: { item: IToken }) => {
   const hasDecreased = item.status === "D";
@@ -51,7 +52,7 @@ const TokenCard = ({ item }: { item: IToken }) => {
               marginRight: 10,
             }}
           >
-            ${item.priceUSD}
+            ${convertTokenToDollars(1, item.name)}
           </Text>
           <Text
             style={{
