@@ -25,5 +25,5 @@ export default {
   white: "#fff",
   black50: "rgba(0,0,0,0.5)",
   green: "green",
-  red: "red",
+  red: "#e63946",
 };

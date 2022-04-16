@@ -38,13 +38,28 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     NativeStackScreenProps<RootStackParamList>
   >;
 
+export type TChains = "Bitcoin" | "Ethereum" | "Binance" | "Polygon";
+export type TSymbol = "BTC" | "ETH" | "BSC" | "MATIC";
+export type TActivity = "swap" | "buy" | "send" | "stake" | "approve";
+
 export interface IToken {
-  id: number;
-  name: string;
-  symbol: string;
+  id?: number;
+  name: TChains;
+  symbol: TSymbol;
   icon: ImageSourcePropType;
-  rate: number;
-  priceUSD: number;
-  balance: number;
-  status: "I" | "D";
+  rate?: number;
+  priceUSD?: number;
+  balance?: number;
+  status?: "I" | "D";
+}
+
+export interface ITransaction {
+  id?: number;
+  type: TActivity;
+  from?: string;
+  to?: string;
+  amount?: number;
+  token?: IToken;
+  destination?: IToken;
+  date: string;
 }

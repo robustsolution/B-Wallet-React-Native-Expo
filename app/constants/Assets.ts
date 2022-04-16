@@ -12,15 +12,19 @@ export const IMAGES = {
   Polygon,
 };
 
+const elevationNone = {
+  shadowColor: "#000",
+  shadowOffset: {
+    height: 4,
+    width: 0,
+  },
+  shadowOpacity: 0.3,
+  shadowRadius: 4.65,
+};
+
 export const SHADOWS = {
   shadow8: {
-    shadowColor: "#000",
-    shadowOffset: {
-      height: 4,
-      width: 0,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
+    ...elevationNone,
     elevation: 8,
   },
   shadow: {
@@ -32,6 +36,9 @@ export const SHADOWS = {
     shadowOpacity: 0.2,
     shadowRadius: 4.65,
     elevation: 4,
+  },
+  elevation0: {
+    ...elevationNone,
   },
 };
 

@@ -1,11 +1,11 @@
-import { IToken } from "types";
+import { IToken, ITransaction } from "types";
 import { IMAGES } from "./Assets";
 
 export const USER_DATA = {
   username: "@satoshi",
   amount: "238,894.89",
   currency: "US",
-  address: "0x78438js5438504ks034z495",
+  address: "0xE21603B45E2675fFeB9f20EED098e268219508CB",
 };
 
 export const TOKENS: IToken[] = [
@@ -48,5 +48,44 @@ export const TOKENS: IToken[] = [
     priceUSD: 416.58,
     status: "D",
     balance: 0,
+  },
+];
+
+export const TRANSACTIONS: ITransaction[] = [
+  {
+    id: 1,
+    type: "stake",
+    amount: 0,
+    token: {
+      name: "Binance",
+      symbol: "BSC",
+      icon: IMAGES.Binance,
+    },
+    date: new Date().toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "2-digit",
+    }),
+  },
+  {
+    id: 2,
+    type: "swap",
+    amount: 100,
+    token: {
+      name: "Ethereum",
+      symbol: "ETH",
+      icon: IMAGES.Ethereum,
+    },
+    destination: {
+      name: "Polygon",
+      symbol: "BSC",
+      icon: IMAGES.Polygon,
+      balance: 0.1,
+    },
+    date: new Date().toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "2-digit",
+    }),
   },
 ];
