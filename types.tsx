@@ -63,3 +63,9 @@ export interface ITransaction {
   destination?: TChains;
   date: string;
 }
+
+export interface DateTimeFormat {
+  month: "short";
+  day: "numeric";
+  year: "2-digit";
+}

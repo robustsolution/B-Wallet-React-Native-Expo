@@ -6,6 +6,7 @@ import { ITransaction, TActivity, TChains } from "types";
 import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import Vector from "../assets/vectors";
 import Colors from "../constants/Colors";
+import { dateFormat } from "../helpers";
 
 interface IProps {
   item: ITransaction;
@@ -35,14 +36,16 @@ const TransactionIcon = ({
     );
   }
 
-  if (type === "stake" && token) {
+  if (["stake", "buy", "send"].includes(type) && token) {
+    const hasDecreased = ["send", "stake"].includes(type);
+
     return (
       <View style={{ position: "relative" }}>
         <Image source={TOKENS[token].icon} style={styles.leadingIcon} />
         <View
           style={{
             position: "absolute",
-            backgroundColor: Colors.red,
+            backgroundColor: hasDecreased ? Colors.red : Colors.green,
             bottom: 0,
             right: 0,
             borderRadius: 20,
@@ -50,9 +53,9 @@ const TransactionIcon = ({
         >
           <Vector
             as="feather"
-            name="minus"
+            name={hasDecreased ? "minus" : "plus"}
             style={{ color: Colors.white }}
-            size={20}
+            size={18}
           />
         </View>
       </View>
@@ -90,11 +93,7 @@ const TransactionTitle = ({
     );
   }
 
-  if (type === "stake") {
-    return <Text style={style}>Stake {TOKENS[token].symbol}</Text>;
-  }
-
-  return <Text style={style}>Approve {TOKENS[token].symbol}</Text>;
+  return <Text style={[style, { textTransform: "capitalize" }]}>{type}</Text>;
 };
 
 const TransactionCard = ({ item }: IProps) => {
@@ -131,7 +130,9 @@ const TransactionCard = ({ item }: IProps) => {
             marginBottom: 5,
           }}
         />
-        <Text style={{ fontFamily: FONTS.monoLight }}>{item.date}</Text>
+        <Text style={{ fontFamily: FONTS.monoLight }}>
+          {dateFormat(item.date)}
+        </Text>
       </View>
       {!["approve", "swap"].includes(item.type) && item.token && (
         <View>

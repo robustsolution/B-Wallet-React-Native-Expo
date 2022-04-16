@@ -57,11 +57,7 @@ export const TRANSACTIONS: ITransaction[] = [
     type: "stake",
     amount: 0,
     token: "Binance",
-    date: new Date().toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "2-digit",
-    }),
+    date: "2022/04/16",
   },
   {
     id: 2,
@@ -69,10 +65,13 @@ export const TRANSACTIONS: ITransaction[] = [
     amount: 100,
     token: "Ethereum",
     destination: "Polygon",
-    date: new Date().toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "2-digit",
-    }),
+    date: "2022/03/30",
+  },
+  {
+    id: 12,
+    type: "buy",
+    amount: 100,
+    token: "Polygon",
+    date: "2021/03/30",
   },
 ];

@@ -12,6 +12,7 @@ import styles from "../styles";
 import Vector from "../assets/vectors";
 import { USER_DATA } from "../constants/Dummies";
 import { truncate } from "../helpers";
+import Colors from "../constants/Colors";
 
 const HeroBar = () => {
   const [showAmount, setShowAmount] = useState(true);
@@ -144,7 +145,11 @@ const HeroBar = () => {
                 }}
               >
                 <Text
-                  style={{ fontFamily: FONTS.light, fontSize: SIZES.medium }}
+                  style={{
+                    fontFamily: FONTS.medium,
+                    fontSize: SIZES.medium,
+                    color: Colors.primary,
+                  }}
                 >
                   {tab.title}
                 </Text>
