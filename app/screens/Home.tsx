@@ -1,12 +1,14 @@
-import { ScrollView } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import HeroBar from "../components/HeroBar";
+import HomeTabs from "../components/HomeTabs";
 
 const Home = () => {
   return (
-    <ScrollView>
+    <View>
       <HeroBar />
-    </ScrollView>
+      <HomeTabs />
+    </View>
   );
 };
 

@@ -1,7 +1,15 @@
 const Wallet = require("../assets/images/wallet.png");
+const Bitcoin = require("../assets/images/bitcoin.png");
+const Ethereum = require("../assets/images/ethereum.png");
+const Binance = require("../assets/images/binance.png");
+const Polygon = require("../assets/images/polygon.png");
 
 export const Images = {
   Wallet,
+  Bitcoin,
+  Ethereum,
+  Binance,
+  Polygon,
 };
 
 export const Shadows = {

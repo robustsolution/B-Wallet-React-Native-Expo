@@ -1,7 +1,7 @@
 const tintColorLight = "#2f95dc";
 const tintColorDark = "#fff";
 
-export default {
+export const colorScheme = {
   light: {
     text: "#000",
     background: "#fff",
@@ -16,25 +16,13 @@ export default {
     tabIconDefault: "#ccc",
     tabIconSelected: tintColorDark,
   },
-  primary: {
-    text: "#fff",
-    background: "#1d3557",
-    tint: tintColorDark,
-    tabIconDefault: "#ccc",
-    tabIconSelected: tintColorDark,
-  },
-  secondary: {
-    text: "#fff",
-    background: "#7DFFF3",
-    tint: tintColorDark,
-    tabIconDefault: "#ccc",
-    tabIconSelected: tintColorDark,
-  },
-  tertiary: {
-    text: "#1d3557",
-    background: "#9E80FF",
-    tint: tintColorDark,
-    tabIconDefault: "#ccc",
-    tabIconSelected: tintColorDark,
-  },
+};
+
+export default {
+  primary: "#1d3557",
+  secondary: "#7DFFF3",
+  tertiary: "#9E80FF",
+  white: "#fff",
+  gray: "#C4C4C4",
+  green: "#7BC08F",
 };

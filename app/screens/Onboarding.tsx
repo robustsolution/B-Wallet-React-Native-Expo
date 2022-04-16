@@ -1,12 +1,12 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Colors from "app/constants/Colors";
-import AppStatusBar from "app/components/AppStatusBar";
-import { Images, Sizes } from "app/constants/Assets";
+import Colors from "../constants/Colors";
+import AppStatusBar from "../components/AppStatusBar";
+import { Images, Sizes } from "../constants/Assets";
 import { useNavigation } from "@react-navigation/native";
-import Vector from "app/assets/vectors";
-import styles from "app/styles";
+import Vector from "../assets/vectors";
+import styles from "../styles";
 
 const Onboarding = () => {
   const navigation = useNavigation();
@@ -46,9 +46,7 @@ const Onboarding = () => {
 
       <TouchableOpacity onPress={() => navigation.navigate("Root")}>
         <View style={styles.startButton}>
-          <Text style={{ color: Colors.primary.background }}>
-            Let's get started
-          </Text>
+          <Text style={{ color: Colors.primary }}>Let's get started</Text>
 
           <View style={styles.startIcon}>
             <Vector as="feather" name="arrow-right" color="#fff" size={18} />

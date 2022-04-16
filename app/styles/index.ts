@@ -3,8 +3,8 @@ import Colors from "../constants/Colors";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.primary.background,
-    color: Colors.primary.text,
+    backgroundColor: Colors.primary,
+    color: Colors.white,
     flex: 1,
   },
   startButton: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
-    backgroundColor: Colors.secondary.background,
+    backgroundColor: Colors.secondary,
     borderRadius: 30,
     width: "100%",
     padding: 10,
@@ -25,19 +25,19 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Colors.tertiary.background,
+    backgroundColor: Colors.tertiary,
   },
   primaryColor: {
-    backgroundColor: Colors.primary.background,
-    color: Colors.primary.text,
+    backgroundColor: Colors.primary,
+    color: Colors.white,
   },
   secondaryColor: {
-    backgroundColor: Colors.secondary.background,
-    color: Colors.secondary.text,
+    backgroundColor: Colors.secondary,
+    color: Colors.primary,
   },
   tertiaryColor: {
-    backgroundColor: Colors.tertiary.background,
-    color: Colors.tertiary.text,
+    backgroundColor: Colors.tertiary,
+    color: Colors.primary,
   },
 });
 

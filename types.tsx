@@ -9,6 +9,7 @@ import {
   NavigatorScreenParams,
 } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ImageSourcePropType } from "react-native";
 
 declare global {
   namespace ReactNavigation {
@@ -36,3 +37,14 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export interface IToken {
+  id: number;
+  name: string;
+  symbol: string;
+  icon: ImageSourcePropType;
+  rate: number;
+  priceUSD: number;
+  balance: number;
+  status: "I" | "D";
+}
