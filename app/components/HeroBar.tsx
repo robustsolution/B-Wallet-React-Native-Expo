@@ -13,7 +13,6 @@ import Vector from "../assets/vectors";
 import { TOKENS, USER_DATA } from "../constants/Dummies";
 import { convertTokenToDollars, truncate } from "../helpers";
 import Colors from "../constants/Colors";
-import DropDownPicker from "react-native-dropdown-picker";
 import TokenSelector from "./TokenSelector";
 
 const HeroBar = () => {

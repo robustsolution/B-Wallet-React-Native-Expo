@@ -6,31 +6,38 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
+import { useRecoilState } from "recoil";
+import { TChains } from "types";
 import { TOKENS, USER_DATA } from "../constants/Dummies";
 import { SHADOWS, FONTS, SIZES } from "../constants/Assets";
 import Colors from "../constants/Colors";
-import { TChains } from "types";
+import { CurrentToken } from "../atoms";
 
 interface IProps {
   style?: StyleProp<ViewStyle>;
   onChange?: (value: TChains) => void;
 }
+const TOKEN_ITEMS = Object.values(TOKENS).map((token) => ({
+  value: token.name as string,
+  label: token.name as string,
+  icon: () => (
+    <Image source={TOKENS[token.name].icon} style={{ height: 40, width: 40 }} />
+  ),
+}));
 
 const TokenSelector = ({ style, onChange }: IProps) => {
-  const TOKEN_ITEMS = Object.values(TOKENS).map((token) => ({
-    value: token.name as string,
-    label: token.name as string,
-    icon: () => (
-      <Image
-        source={TOKENS[token.name].icon}
-        style={{ height: 40, width: 40 }}
-      />
-    ),
-  }));
-
+  const [currentToken, setCurrentToken] = useRecoilState(CurrentToken);
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(USER_DATA.token);
+  const [value, setValue] = useState(currentToken.name);
   const [items, setItems] = useState(TOKEN_ITEMS);
+
+  const onChangeChain = (chain: TChains) => {
+    if (onChange) {
+      onChange(chain);
+      return;
+    }
+    setCurrentToken(TOKENS[chain]);
+  };
 
   return (
     <TouchableWithoutFeedback onPress={() => setOpen(false)}>
@@ -59,7 +66,7 @@ const TokenSelector = ({ style, onChange }: IProps) => {
         }}
         style={style}
         arrowIconStyle={{ opacity: 0.5 }}
-        onChangeValue={(value) => onChange?.(value as TChains)}
+        onChangeValue={(value) => onChangeChain?.(value as TChains)}
       />
     </TouchableWithoutFeedback>
   );

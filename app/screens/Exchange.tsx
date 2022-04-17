@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
+import { View, Text, ViewStyle } from "react-native";
 import React from "react";
 
-const Exchange = () => {
+const Exchange = ({ style }: { style?: ViewStyle }) => {
   return (
-    <View>
+    <View style={style}>
       <Text>Exchange</Text>
     </View>
   );

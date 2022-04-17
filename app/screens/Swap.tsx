@@ -1,4 +1,11 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Pressable,
+  ViewStyle,
+} from "react-native";
 import React, { useState } from "react";
 import { SIZES, FONTS } from "../constants/Assets";
 import COLORS from "../constants/Colors";
@@ -72,9 +79,9 @@ const SwapItem = () => {
   );
 };
 
-const Swap = () => {
+const Swap = ({ style }: { style?: ViewStyle }) => {
   return (
-    <View>
+    <View style={style}>
       <View
         style={{
           margin: SIZES.p20,
@@ -94,7 +101,7 @@ const Swap = () => {
               backgroundColor: COLORS.gray10,
             }}
           />
-          <TouchableOpacity
+          <Pressable
             style={{
               height: 40,
               width: 40,
@@ -115,7 +122,7 @@ const Swap = () => {
               color={COLORS.black50}
               style={{ transform: [{ rotate: "90deg" }] }}
             />
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <SwapItem />
