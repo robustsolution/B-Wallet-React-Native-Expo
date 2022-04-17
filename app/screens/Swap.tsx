@@ -13,9 +13,10 @@ import TokenSelector from "../components/TokenSelector";
 import Vector from "../assets/vectors";
 import { convertTokenToDollars } from "../helpers";
 import { TChains } from "types";
-import { TOKENS } from "../constants/Dummies";
 import { useRecoilValue } from "recoil";
 import { CurrentTokenState } from "../atoms";
+import styles from "../styles";
+import TouchableText from "../components/TouchableText";
 
 const SwapItem = ({ defaultChain }: { defaultChain?: TChains }) => {
   const [value, setValue] = useState("");
@@ -94,15 +95,7 @@ const Swap = ({ style }: { style?: ViewStyle }) => {
 
   return (
     <View style={style}>
-      <View
-        style={{
-          margin: SIZES.p20,
-          backgroundColor: COLORS.white,
-          borderRadius: SIZES.small,
-          borderWidth: 1,
-          borderColor: COLORS.gray10,
-        }}
-      >
+      <View style={styles.cardMainWrapper}>
         <SwapItem />
 
         <View style={{ marginVertical: SIZES.large, position: "relative" }}>
@@ -146,25 +139,11 @@ const Swap = ({ style }: { style?: ViewStyle }) => {
         />
       </View>
 
-      <TouchableOpacity
-        style={{
-          backgroundColor: COLORS.primary,
-          marginHorizontal: SIZES.p20,
-          padding: SIZES.p15,
-          borderRadius: SIZES.small,
-        }}
-      >
-        <Text
-          style={{
-            textAlign: "center",
-            color: COLORS.white,
-            fontFamily: FONTS.semibold,
-            fontSize: SIZES.font,
-          }}
-        >
-          Swap
-        </Text>
-      </TouchableOpacity>
+      <TouchableText
+        text="Swap"
+        style={styles.primaryButtonView}
+        textStyle={styles.primaryButtonText}
+      />
     </View>
   );
 };

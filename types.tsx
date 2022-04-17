@@ -24,6 +24,7 @@ export type RootStackParamList = {
   Modal: undefined;
   Exchange: undefined;
   Trade: undefined;
+  Send: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -81,4 +82,10 @@ export interface DateTimeFormat {
   month: "short";
   day: "numeric";
   year: "2-digit";
+}
+
+export interface IWalletTab {
+  title: string;
+  id: number;
+  route: any;
 }

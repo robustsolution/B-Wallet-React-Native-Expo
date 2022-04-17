@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
 import {
   FONTS,
   Opacity,
@@ -20,6 +21,8 @@ import { CurrentTokenState } from "../atoms";
 const HeroBar = () => {
   const [showAmount, setShowAmount] = useState(true);
   const currentToken = useRecoilValue(CurrentTokenState);
+
+  const navigation = useNavigation();
 
   const onToggleAmount = () => {
     setShowAmount((state) => !state);
@@ -147,7 +150,7 @@ const HeroBar = () => {
             }}
           >
             {WALLET_TOP_TABS.map((tab, index) => (
-              <View
+              <TouchableOpacity
                 key={index}
                 style={{
                   height: "60%",
@@ -158,6 +161,7 @@ const HeroBar = () => {
                   borderColor: "rgba(196, 196, 196, 0.54)",
                   paddingLeft: index !== 0 ? 20 : 0,
                 }}
+                onPress={() => navigation.navigate(tab.route)}
               >
                 <Text
                   style={{
@@ -168,7 +172,7 @@ const HeroBar = () => {
                 >
                   {tab.title}
                 </Text>
-              </View>
+              </TouchableOpacity>
             ))}
           </View>
         </SafeAreaView>

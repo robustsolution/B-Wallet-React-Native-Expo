@@ -1,3 +1,5 @@
+import { IWalletTab } from "types";
+
 const Wallet = require("../assets/images/wallet.png");
 const Bitcoin = require("../assets/images/bitcoin.png");
 const Ethereum = require("../assets/images/ethereum.png");
@@ -72,8 +74,8 @@ export const Opacity = {
   opacity2: "rgba(0,0,0, 0.2)",
 };
 
-export const WALLET_TOP_TABS = [
-  { title: "Send", id: 1 },
-  { title: "Receive", id: 2 },
-  { title: "Trade", id: 3 },
+export const WALLET_TOP_TABS: IWalletTab[] = [
+  { title: "Send", id: 1, route: "Send" },
+  { title: "Receive", id: 2, route: "Receive" },
+  { title: "Trade", id: 3, route: "Trade" },
 ];

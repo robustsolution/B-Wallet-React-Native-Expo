@@ -12,6 +12,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           HomeTab: {
             screens: {
               Home: "home",
+              Send: "send",
             },
           },
           TradeTab: {

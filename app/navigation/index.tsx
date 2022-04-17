@@ -7,7 +7,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { Feather } from "@expo/vector-icons";
-import { ColorSchemeName, Text, TouchableOpacity, View } from "react-native";
+import { ColorSchemeName, TouchableOpacity } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -17,11 +17,13 @@ import Profile from "../screens/Profile";
 import { RootStackParamList, RootTabParamList } from "../../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import Vector from "../assets/vectors";
-import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
+import { SHADOWS } from "../constants/Assets";
 import { COLOR_SCHEME } from "../constants/Colors";
 import Trade from "../screens/Trade";
 import TradingModalHeader from "../components/TradingModalHeader";
-import Exchange from "../screens/Exchange";
+import Send from "../screens/Send";
+import styles from "../styles";
+import ModalHeaderRight from "../components/ModalHeaderRight";
 
 export default function Navigation({
   colorScheme,
@@ -66,6 +68,17 @@ const RootNavigator = () => {
         }}
       >
         <Stack.Screen name="Trade" component={Trade} />
+      </Stack.Group>
+      <Stack.Group
+        screenOptions={{
+          headerShown: true,
+          presentation: "modal",
+          headerStyle: styles.headerStyle,
+          headerTitleStyle: { color: Colors.white },
+          headerRight: () => <ModalHeaderRight />,
+        }}
+      >
+        <Stack.Screen name="Send" component={Send} />
       </Stack.Group>
     </Stack.Navigator>
   );
