@@ -8,15 +8,11 @@ import React, { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import { useRecoilState } from "recoil";
 import { TChains } from "types";
-import { TOKENS, USER_DATA } from "../constants/Dummies";
+import { TOKENS } from "../constants/Dummies";
 import { SHADOWS, FONTS, SIZES } from "../constants/Assets";
 import Colors from "../constants/Colors";
-import { CurrentToken } from "../atoms";
+import { CurrentTokenState } from "../atoms";
 
-interface IProps {
-  style?: StyleProp<ViewStyle>;
-  onChange?: (value: TChains) => void;
-}
 const TOKEN_ITEMS = Object.values(TOKENS).map((token) => ({
   value: token.name as string,
   label: token.name as string,
@@ -24,11 +20,22 @@ const TOKEN_ITEMS = Object.values(TOKENS).map((token) => ({
     <Image source={TOKENS[token.name].icon} style={{ height: 40, width: 40 }} />
   ),
 }));
+interface IProps {
+  defaultValue?: TChains;
+  style?: StyleProp<ViewStyle>;
+  dropDownContainerStyle?: StyleProp<ViewStyle>;
+  onChange?: (value: TChains) => void;
+}
 
-const TokenSelector = ({ style, onChange }: IProps) => {
-  const [currentToken, setCurrentToken] = useRecoilState(CurrentToken);
+const TokenSelector = ({
+  style,
+  defaultValue,
+  dropDownContainerStyle,
+  onChange,
+}: IProps) => {
+  const [currentToken, setCurrentToken] = useRecoilState(CurrentTokenState);
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(currentToken.name);
+  const [value, setValue] = useState(defaultValue || currentToken.name);
   const [items, setItems] = useState(TOKEN_ITEMS);
 
   const onChangeChain = (chain: TChains) => {
@@ -59,11 +66,7 @@ const TokenSelector = ({ style, onChange }: IProps) => {
           overflow: "hidden",
         }}
         labelProps={{ numberOfLines: 1 }}
-        dropDownContainerStyle={{
-          width: "50%",
-          borderWidth: 0,
-          marginTop: 5,
-        }}
+        dropDownContainerStyle={dropDownContainerStyle}
         style={style}
         arrowIconStyle={{ opacity: 0.5 }}
         onChangeValue={(value) => onChangeChain?.(value as TChains)}
@@ -79,6 +82,11 @@ TokenSelector.defaultProps = {
     paddingRight: SIZES.p20,
     backgroundColor: Colors.gray,
     ...SHADOWS.shadow8,
+  },
+  dropDownContainerStyle: {
+    width: "50%",
+    borderWidth: 0,
+    marginTop: 5,
   },
 };
 

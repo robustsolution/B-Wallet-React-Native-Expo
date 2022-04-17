@@ -21,6 +21,7 @@ export const TOKENS: Record<TChains, IToken> = {
     priceUSD: 40455.1,
     status: "I",
     balance: 0,
+    defaultSwapChain: "Binance",
   },
   Ethereum: {
     id: 2,
@@ -31,6 +32,7 @@ export const TOKENS: Record<TChains, IToken> = {
     priceUSD: 3050.78,
     status: "D",
     balance: 0,
+    defaultSwapChain: "Bitcoin",
   },
   Binance: {
     id: 3,
@@ -41,6 +43,7 @@ export const TOKENS: Record<TChains, IToken> = {
     priceUSD: 416.58,
     status: "I",
     balance: 0,
+    defaultSwapChain: "Polygon",
   },
   Polygon: {
     id: 4,
@@ -51,6 +54,7 @@ export const TOKENS: Record<TChains, IToken> = {
     priceUSD: 1.39,
     status: "D",
     balance: 0,
+    defaultSwapChain: "Ethereum",
   },
 };
 

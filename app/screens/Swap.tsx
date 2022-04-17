@@ -13,14 +13,18 @@ import TokenSelector from "../components/TokenSelector";
 import Vector from "../assets/vectors";
 import { convertTokenToDollars } from "../helpers";
 import { TChains } from "types";
+import { TOKENS } from "../constants/Dummies";
+import { useRecoilValue } from "recoil";
+import { CurrentTokenState } from "../atoms";
 
-const SwapItem = () => {
+const SwapItem = ({ defaultChain }: { defaultChain?: TChains }) => {
   const [value, setValue] = useState("");
   const [selectedToken, setSelectedToken] = useState<TChains | null>(null);
 
   return (
     <View
       style={{
+        zIndex: 3000,
         paddingVertical: SIZES.extraLarge,
       }}
     >
@@ -29,7 +33,6 @@ const SwapItem = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          zIndex: 3,
           marginVertical: 5,
           width: SIZES.full,
           paddingHorizontal: SIZES.p20,
@@ -49,10 +52,17 @@ const SwapItem = () => {
           />
         </View>
         <TokenSelector
+          defaultValue={defaultChain}
           style={{
             width: SIZES.half,
             borderColor: COLORS.gray10,
             borderRadius: 100,
+          }}
+          dropDownContainerStyle={{
+            width: "50%",
+            borderWidth: 0,
+            marginTop: 10,
+            borderColor: COLORS.gray10,
           }}
           onChange={setSelectedToken}
         />
@@ -80,6 +90,8 @@ const SwapItem = () => {
 };
 
 const Swap = ({ style }: { style?: ViewStyle }) => {
+  const currentToken = useRecoilValue(CurrentTokenState);
+
   return (
     <View style={style}>
       <View
@@ -96,7 +108,7 @@ const Swap = ({ style }: { style?: ViewStyle }) => {
         <View style={{ marginVertical: SIZES.large, position: "relative" }}>
           <View
             style={{
-              height: 1,
+              height: 0.75,
               width: SIZES.full,
               backgroundColor: COLORS.gray10,
             }}
@@ -125,7 +137,13 @@ const Swap = ({ style }: { style?: ViewStyle }) => {
           </Pressable>
         </View>
 
-        <SwapItem />
+        <SwapItem
+          defaultChain={
+            currentToken.defaultSwapChain
+              ? currentToken.defaultSwapChain
+              : undefined
+          }
+        />
       </View>
 
       <TouchableOpacity

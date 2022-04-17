@@ -10,13 +10,16 @@ import {
 } from "../constants/Assets";
 import styles from "../styles";
 import Vector from "../assets/vectors";
-import { TOKENS, USER_DATA } from "../constants/Dummies";
+import { USER_DATA } from "../constants/Dummies";
 import { convertTokenToDollars, truncate } from "../helpers";
 import Colors from "../constants/Colors";
 import TokenSelector from "./TokenSelector";
+import { useRecoilValue } from "recoil";
+import { CurrentTokenState } from "../atoms";
 
 const HeroBar = () => {
   const [showAmount, setShowAmount] = useState(true);
+  const currentToken = useRecoilValue(CurrentTokenState);
 
   const onToggleAmount = () => {
     setShowAmount((state) => !state);
@@ -99,7 +102,10 @@ const HeroBar = () => {
                 }}
               >
                 {showAmount
-                  ? `US ${convertTokenToDollars(USER_DATA.amount, "Bitcoin")}`
+                  ? `US ${convertTokenToDollars(
+                      USER_DATA.amount,
+                      currentToken.name
+                    )}`
                   : "******"}
               </Text>
 

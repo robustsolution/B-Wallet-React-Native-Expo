@@ -63,6 +63,7 @@ export interface IToken {
   priceUSD: number;
   balance?: number;
   status?: "I" | "D";
+  defaultSwapChain?: TChains;
 }
 
 export interface ITransaction {
