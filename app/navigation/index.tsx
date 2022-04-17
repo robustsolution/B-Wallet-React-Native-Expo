@@ -7,7 +7,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { Feather } from "@expo/vector-icons";
-import { ColorSchemeName, Text, TouchableOpacity, View } from "react-native";
+import { ColorSchemeName, Text, TouchableOpacity } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -21,7 +21,7 @@ import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import { COLOR_SCHEME } from "../constants/Colors";
 import Trade from "../screens/Trade";
 import TradingModalHeader from "../components/TradingModalHeader";
-import Exchange from "../screens/Exchange";
+import Send from "../screens/Send";
 
 export default function Navigation({
   colorScheme,
@@ -66,6 +66,27 @@ const RootNavigator = () => {
         }}
       >
         <Stack.Screen name="Trade" component={Trade} />
+      </Stack.Group>
+      <Stack.Group
+        screenOptions={{
+          headerShown: true,
+          presentation: "modal",
+          headerRight: () => (
+            <TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: SIZES.medium,
+                  fontFamily: FONTS.medium,
+                  alignItems: "flex-end",
+                }}
+              >
+                Done
+              </Text>
+            </TouchableOpacity>
+          ),
+        }}
+      >
+        <Stack.Screen name="Send" component={Send} />
       </Stack.Group>
     </Stack.Navigator>
   );

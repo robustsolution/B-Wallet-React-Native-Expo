@@ -1,11 +1,11 @@
-import { SHADOWS, SIZES } from "../constants/Assets";
+import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import { StyleSheet } from "react-native";
-import Colors from "../constants/Colors";
+import COLORS from "../constants/Colors";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.primary,
-    color: Colors.white,
+    backgroundColor: COLORS.primary,
+    color: COLORS.white,
     flex: 1,
   },
   startButton: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
-    backgroundColor: Colors.secondary,
+    backgroundColor: COLORS.secondary,
     borderRadius: 30,
     width: "100%",
     padding: 10,
@@ -26,19 +26,19 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Colors.tertiary,
+    backgroundColor: COLORS.tertiary,
   },
   primaryColor: {
-    backgroundColor: Colors.primary,
-    color: Colors.white,
+    backgroundColor: COLORS.primary,
+    color: COLORS.white,
   },
   secondaryColor: {
-    backgroundColor: Colors.secondary,
-    color: Colors.primary,
+    backgroundColor: COLORS.secondary,
+    color: COLORS.primary,
   },
   tertiaryColor: {
-    backgroundColor: Colors.tertiary,
-    color: Colors.primary,
+    backgroundColor: COLORS.tertiary,
+    color: COLORS.primary,
   },
   cardWrapper: {
     flexDirection: "row",
@@ -54,6 +54,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginLeft: -SIZES.p20,
     ...SHADOWS.elevation0,
+  },
+  cardMainWrapper: {
+    margin: SIZES.p20,
+    backgroundColor: COLORS.white,
+    borderRadius: SIZES.small,
+    borderWidth: 1,
+    borderColor: COLORS.gray10,
+  },
+  primaryButtonView: {
+    backgroundColor: COLORS.primary,
+    marginHorizontal: SIZES.p20,
+    padding: SIZES.p15,
+    borderRadius: SIZES.small,
+  },
+  primaryButtonText: {
+    textAlign: "center",
+    color: COLORS.white,
+    fontFamily: FONTS.semibold,
+    fontSize: SIZES.font,
   },
 });
 
