@@ -17,6 +17,7 @@ const linking: LinkingOptions<RootStackParamList> = {
           TradeTab: {
             screens: {
               Trade: "trade",
+              Exchange: "exchange",
             },
           },
           ProfileTab: {
@@ -27,6 +28,7 @@ const linking: LinkingOptions<RootStackParamList> = {
         },
       },
       Onboarding: "Onboarding",
+      Modal: "modal",
     },
   },
 };

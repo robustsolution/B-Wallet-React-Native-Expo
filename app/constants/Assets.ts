@@ -52,6 +52,8 @@ export const SIZES = {
   medium: 16,
   large: 18,
   extraLarge: 24,
+  half: "50%",
+  full: "100%",
 };
 
 export const FONTS = {

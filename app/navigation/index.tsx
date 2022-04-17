@@ -7,7 +7,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { Feather } from "@expo/vector-icons";
-import { ColorSchemeName, View } from "react-native";
+import { ColorSchemeName, Text, TouchableOpacity, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -17,8 +17,11 @@ import Profile from "../screens/Profile";
 import { RootStackParamList, RootTabParamList } from "../../types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import Vector from "../assets/vectors";
-import { SHADOWS } from "../constants/Assets";
+import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import { COLOR_SCHEME } from "../constants/Colors";
+import Trade from "../screens/Trade";
+import TradingModalHeader from "../components/TradingModalHeader";
+import Exchange from "../screens/Exchange";
 
 export default function Navigation({
   colorScheme,
@@ -54,6 +57,16 @@ const RootNavigator = () => {
         component={Onboarding}
         options={{ headerShown: false }}
       />
+
+      <Stack.Group
+        screenOptions={{
+          headerShown: true,
+          presentation: "modal",
+          header: () => <TradingModalHeader />,
+        }}
+      >
+        <Stack.Screen name="Trade" component={Trade} />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };
@@ -84,12 +97,13 @@ const BottomTabNavigator = () => {
       <BottomTab.Screen
         name="TradeTab"
         component={Home}
-        options={() => ({
+        options={({ navigation }) => ({
           title: "Trade",
           headerShown: false,
           tabBarShowLabel: false,
           tabBarIcon: () => (
-            <View
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Trade")}
               style={{
                 top: -20,
                 height: 70,
@@ -112,7 +126,7 @@ const BottomTabNavigator = () => {
                   borderRadius: 8,
                 }}
               />
-            </View>
+            </TouchableOpacity>
           ),
         })}
       />

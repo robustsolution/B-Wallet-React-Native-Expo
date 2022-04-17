@@ -26,6 +26,9 @@ export const dateFormat = (date?: string) => {
 };
 
 export const convertTokenToDollars = (price: number, token: TChains) => {
+  if (!token || !price) {
+    return Number(0).toFixed(2).toLocaleString();
+  }
   const chain = TOKENS[token];
 
   const total = price * chain.priceUSD;
