@@ -74,6 +74,9 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.semibold,
     fontSize: SIZES.font,
   },
+  headerStyle: {
+    backgroundColor: COLORS.primary,
+  },
 });
 
 export default styles;

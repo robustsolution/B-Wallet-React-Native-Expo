@@ -65,6 +65,7 @@ const Send = () => {
             color: COLORS.black50,
             fontFamily: FONTS.regular,
             marginBottom: SIZES.base,
+            textTransform: "uppercase",
           }}
         >
           Send to
