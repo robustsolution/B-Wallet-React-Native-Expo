@@ -24,6 +24,7 @@ import TradingModalHeader from "../components/TradingModalHeader";
 import Send from "../screens/Send";
 import styles from "../styles";
 import ModalHeaderRight from "../components/ModalHeaderRight";
+import Receive from "../screens/Receive";
 
 export default function Navigation({
   colorScheme,
@@ -79,6 +80,7 @@ const RootNavigator = () => {
         }}
       >
         <Stack.Screen name="Send" component={Send} />
+        <Stack.Screen name="Receive" component={Receive} />
       </Stack.Group>
     </Stack.Navigator>
   );

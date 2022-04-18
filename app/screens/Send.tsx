@@ -55,6 +55,7 @@ const Send = () => {
         >
           <TextInput
             placeholder="0.00"
+            autoFocus
             showSoftInputOnFocus
             style={{ fontFamily: FONTS.monoBold, fontSize: SIZES.extraLarge }}
           />
