@@ -77,6 +77,12 @@ const styles = StyleSheet.create({
   headerStyle: {
     backgroundColor: COLORS.primary,
   },
+  selectorStyle: { borderColor: COLORS.gray10 },
+  dropdownContainerStyle: {
+    width: SIZES.full,
+    marginTop: 5,
+    borderColor: COLORS.gray10,
+  },
 });
 
 export default styles;

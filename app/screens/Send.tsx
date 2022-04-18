@@ -16,12 +16,8 @@ const Send = () => {
     <View>
       <View style={[styles.cardMainWrapper, { padding: SIZES.p20 }]}>
         <TokenSelector
-          style={{ borderColor: COLORS.gray10 }}
-          dropDownContainerStyle={{
-            width: SIZES.full,
-            marginTop: 5,
-            borderColor: COLORS.gray10,
-          }}
+          style={styles.selectorStyle}
+          dropDownContainerStyle={styles.dropdownContainerStyle}
         />
 
         <View
