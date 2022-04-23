@@ -32,5 +32,5 @@ export const convertTokenToDollars = (price: number, token: TChains) => {
   const chain = TOKENS[token];
 
   const total = price * chain.priceUSD;
-  return total.toFixed(2).toLocaleString();
+  return new Intl.NumberFormat().format(total);
 };
