@@ -81,7 +81,7 @@ const TransactionTitle = ({
 }: {
   type: TActivity;
   amount: number;
-  token: TChains;
+  token?: TChains;
   destination?: TChains;
 } & TextProps) => {
   if (type === "swap" && amount && destination && token) {
@@ -114,7 +114,7 @@ const TransactionCard = ({ item }: IProps) => {
         <TransactionIcon
           type={item.type}
           token={item.token}
-          destination={item.destination}
+          destination={item.to as TChains}
         />
       </View>
       <View style={{ width: "100%", flex: 1, alignSelf: "flex-start" }}>
@@ -122,7 +122,7 @@ const TransactionCard = ({ item }: IProps) => {
           amount={item.amount || 0}
           type={item.type}
           token={item.token}
-          destination={item.destination}
+          destination={item.to as TChains}
           style={{
             fontFamily: FONTS.semibold,
             fontWeight: "500",

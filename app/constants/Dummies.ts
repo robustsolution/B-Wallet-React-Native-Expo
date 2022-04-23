@@ -70,8 +70,8 @@ export const TRANSACTIONS: ITransaction[] = [
     id: 2,
     type: "swap",
     amount: 100,
-    token: "Ethereum",
-    destination: "Polygon",
+    from: "Ethereum",
+    to: "Polygon",
     date: "2022/03/30",
   },
   {
