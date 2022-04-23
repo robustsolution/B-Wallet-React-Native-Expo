@@ -24,5 +24,5 @@ $ npm start
 or 
 
 ```
-$ npm start
+$ yarn start
 ```
