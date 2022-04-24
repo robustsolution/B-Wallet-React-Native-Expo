@@ -3,7 +3,8 @@
 
 A digital asset wallet that helps store, sell, buy and earn digital tokens built with React Native
 
-![B-Wallet](https://user-images.githubusercontent.com/24823152/164949120-03676f52-f6f0-454b-a08c-7b903e33bc81.png)
+![B-Wallet](https://user-images.githubusercontent.com/24823152/164950219-be751ec8-478e-4480-b426-31cdedb23ac4.png)
+
 
 ### Technology Stack & Dependencies
 - React Native Expo
