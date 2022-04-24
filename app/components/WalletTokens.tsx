@@ -1,10 +1,12 @@
 import { View, Text, FlatList, Image, Pressable } from "react-native";
 import React from "react";
+import { useRecoilValue } from "recoil";
 import { TOKENS } from "../constants/Dummies";
 import { IToken } from "types";
 import { FONTS, SHADOWS, SIZES } from "../constants/Assets";
 import Colors from "../constants/Colors";
 import { convertTokenToDollars } from "../helpers";
+import { CurrentTokenState } from "../atoms";
 
 interface IProps {
   showDetails?: boolean;
@@ -97,9 +99,18 @@ const TokenCard = ({
 };
 
 const WalletTokens = ({ showDetails, onPress }: IProps) => {
+  const currentToken = useRecoilValue(CurrentTokenState);
+
+  const tokens = Object.values(TOKENS).reduce((acc, token) => {
+    if (token.name === currentToken.name) {
+      return [token, ...acc];
+    }
+    return [...acc, token];
+  }, [] as IToken[]);
+
   return (
     <FlatList
-      data={Object.values(TOKENS)}
+      data={tokens}
       renderItem={({ item }) => (
         <TokenCard item={item} showDetails={showDetails} onPress={onPress} />
       )}

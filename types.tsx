@@ -71,11 +71,10 @@ export interface IToken {
 export interface ITransaction {
   id?: number;
   type: TActivity;
-  from?: string;
-  to?: string;
+  from?: TChains | string;
+  to?: TChains | string;
   amount?: number;
-  token: TChains;
-  destination?: TChains;
+  token?: TChains;
   date: string;
 }
 
