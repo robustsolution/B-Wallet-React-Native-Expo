@@ -45,7 +45,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
-    // @ts-ignore
     <Stack.Navigator
       initialRouteName="Onboarding"
       screenOptions={{ headerShown: false }}
@@ -92,7 +91,6 @@ const BottomTabNavigator = () => {
   const colorScheme = useColorScheme();
 
   return (
-    // @ts-ignore
     <BottomTab.Navigator
       initialRouteName="HomeTab"
       screenOptions={{
