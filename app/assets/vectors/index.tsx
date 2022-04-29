@@ -11,7 +11,7 @@ type TVector = "feather" | "fontawesome" | "ionicons" | "materialCI";
 interface IProps {
   size?: number;
   style?: StyleProp<TextStyle>;
-  name?: string;
+  name?: any;
   color?: string;
   as?: TVector;
   onPress?: () => void;
@@ -34,17 +34,14 @@ const Vector = ({
   };
 
   if (as === "feather") {
-    //@ts-ignore
     return <Feather {...props} />;
   }
   if (as === "ionicons") {
-    //@ts-ignore
     return <Ionicons {...props} />;
   }
 
   if (as === "materialCI") {
     return (
-      //@ts-ignore
       <MaterialCommunityIcons
         name={name as any}
         size={size}
@@ -53,7 +50,6 @@ const Vector = ({
       />
     );
   }
-  //@ts-ignore
   return <FontAwesome {...props} />;
 };
 
