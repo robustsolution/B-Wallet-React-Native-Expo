@@ -29,7 +29,7 @@ const HeroBar = () => {
   };
 
   return (
-    <View style={{ paddingBottom: 50 }}>
+    <View>
       <View
         style={{
           height: 320,

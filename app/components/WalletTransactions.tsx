@@ -101,8 +101,8 @@ const TransactionCard = ({ item }: IProps) => {
     <View style={styles.cardWrapper}>
       <View
         style={{
-          width: 50,
-          height: 50,
+          width: SIZES.p50,
+          height: SIZES.p50,
           borderRadius: 70,
           justifyContent: "center",
           alignItems: "center",
@@ -166,6 +166,7 @@ const WalletTransactions = () => {
       renderItem={TransactionCard}
       showsVerticalScrollIndicator={false}
       keyExtractor={({ id }) => `${id}`}
+      contentContainerStyle={{ paddingBottom: SIZES.p50 }}
     />
   );
 };

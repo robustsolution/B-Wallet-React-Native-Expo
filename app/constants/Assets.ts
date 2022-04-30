@@ -45,6 +45,9 @@ export const SHADOWS = {
 };
 
 export const SIZES = {
+  p50: 50,
+  p40: 40,
+  p30: 30,
   p20: 20,
   p15: 15,
   p6: 6,
