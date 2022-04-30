@@ -25,13 +25,13 @@ const HomeTabs = () => {
   return (
     <View
       style={{
-        height: "100%",
+        flex: 1,
         backgroundColor: Colors.white,
-        padding: SIZES.p20,
-        paddingVertical: SIZES.p20 + 10,
+        paddingHorizontal: SIZES.p20,
+        paddingVertical: SIZES.p30,
         marginTop: SIZES.extraLarge,
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
+        borderTopLeftRadius: SIZES.p40,
+        borderTopRightRadius: SIZES.p40,
       }}
     >
       <TabView
@@ -44,13 +44,13 @@ const HomeTabs = () => {
             {...props}
             style={{
               backgroundColor: Colors.gray,
-              borderRadius: SIZES.p6 + 2,
+              borderRadius: SIZES.base,
               marginBottom: SIZES.p15,
             }}
             indicatorStyle={{
               backgroundColor: styles.primaryColor.color,
               height: "100%",
-              borderRadius: 8,
+              borderRadius: SIZES.base,
             }}
             indicatorContainerStyle={{
               position: "absolute",

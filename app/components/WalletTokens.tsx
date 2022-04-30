@@ -1,4 +1,11 @@
-import { View, Text, FlatList, Image, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  Pressable,
+  ViewStyle,
+} from "react-native";
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { TOKENS } from "../constants/Dummies";
@@ -32,8 +39,8 @@ const TokenCard = ({
     >
       <View
         style={{
-          width: showDetails ? 50 : 40,
-          height: showDetails ? 50 : 40,
+          width: showDetails ? SIZES.p50 : SIZES.p40,
+          height: showDetails ? SIZES.p50 : SIZES.p40,
           borderRadius: 70,
           justifyContent: "center",
           alignItems: "center",
@@ -60,7 +67,7 @@ const TokenCard = ({
             <Text
               style={{
                 fontFamily: FONTS.monoRegular,
-                fontSize: 16,
+                fontSize: SIZES.medium,
                 color: Colors.black50,
                 marginRight: 10,
               }}
@@ -116,6 +123,7 @@ const WalletTokens = ({ showDetails, onPress }: IProps) => {
       )}
       showsVerticalScrollIndicator={false}
       keyExtractor={({ id }) => `${id}`}
+      contentContainerStyle={{ paddingBottom: SIZES.p50 }}
     />
   );
 };
