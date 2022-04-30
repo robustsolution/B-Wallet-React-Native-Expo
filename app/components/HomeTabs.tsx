@@ -29,7 +29,7 @@ const HomeTabs = () => {
         backgroundColor: Colors.white,
         padding: SIZES.p20,
         paddingVertical: SIZES.p20 + 10,
-        marginTop: 8,
+        marginTop: SIZES.extraLarge,
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
       }}
